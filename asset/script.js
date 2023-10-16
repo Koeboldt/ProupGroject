@@ -120,29 +120,6 @@ function displayModal(message) {
     });
 }
 
-// Function to be called when "Search Ingredients" button is clicked
-function searchIngredients() {
-    const searchTerm = document.getElementById('search-input').value;
-    if (!searchTerm) {
-        displayModal('Please enter an ingredient.');
-        return;
-    }
-
-    // Fetch meals based on the ingredient
-    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchTerm}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.meals && data.meals.length > 0) {
-                displayMealsWithIngredients(data.meals);
-            } else {
-                displayModal('No meals found with the provided ingredient.');
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching data:', error);
-        });
-}
-
 // Function to display meals with ingredients
 function displayMealsWithIngredients(meals) {
     const ingredientsDisplay = document.getElementById('ingredient-display');
