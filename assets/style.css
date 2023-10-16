@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    padding: 40px;
+    text-align: left;
+    background: white;
+    color: black;
+}
