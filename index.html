@@ -3,18 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
- <!--
-
-    use this space for all the links to other apis,
-    and stuff leaving these at the bottom
-
- -->
-    <script src="./assets/script.js"></script>
-    <link rel="stylesheet" href="./assets/style.css"/>
+    <title>Meal Ingredient Search</title>
+    <link rel="stylesheet" href="asset/css/style.css">
 </head>
+
 <body>
-    <h2> HI </h2>
-    <script src="./assets/js/script.js"></script>
+    <!-- Main container -->
+    <div class="container">
+         <!-- Section for displaying meal search cards -->
+        <div class="mealCards">
+            <!-- Section for the meal search title -->
+            <div class="mealSearch">
+                <h2 class="title">Search for Ingredients</h2>
+            </div>
+              <!-- Section for the search input and button -->
+            <div class="mealCardDisplay">
+                <input type="text" class="search content" placeholder="Enter ingredient" id="search-input">
+                <button class="search-btn btn" id="search-btn" onclick="searchIngredients()">Search Ingredients</button>
+            </div>
+        </div>
+          <!-- Section for displaying ingredients -->
+        <div id="ingredient-display"></div> <!-- Display ingredient information here -->
+        <!-- Section for displaying recipes -->
+        <div id="recipe-display"></div> <!-- Display recipe information here -->
+    </div>
+
+    <!-- Modal for displaying messages -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span> <!-- Close button for the modal -->
+            <p id="modal-message"></p> <!-- Message content goes here -->
+        </div>
+    </div>
+
+    <script src="./asset/script.js"></script>
 </body>
 </html>
