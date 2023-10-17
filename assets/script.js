@@ -48,9 +48,13 @@ fetch("https://www.themealdb.com/api/json/v1/1/list.php?i=list")
     return responce.json();
   })
   .then(function (data) {
-    console.log("Ingredients: ", data);
+    var ingredients = [];
+    for (i = 0; i < data.meals.length; i++) {
+      ingredients.push(data.meals[i].strIngredient);
+    }
+    console.log("Ingredients: ", ingredients);
   });
-fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian")
+/* fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian")
   .then(function (responce) {
     return responce.json();
   })
@@ -76,3 +80,4 @@ fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=Vegetarian")
         console.log(Object.keys(ingredients));
       });
   });
+ */
