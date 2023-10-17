@@ -1,24 +1,3 @@
-//Function to display ingredients for a meal
-function displayIngredients(meal) {
-    var ingredientsDiv = document.getElementById('ingredient-display');
-    ingredientsDiv.innerHTML = '';  // Clear previous content
-
-    var ingredientsList = document.createElement('ul');
-
-    //Iterate through ingredients and measures and display them
-    for (var i = 1; i <= 20; i++) {
-        var ingredient = meal["strIngredient" + i];
-        var measure = meal["strMeasure" + i];
-        if (ingredient) {
-            var listItem = document.createElement('li');
-            listItem.textContent = `${ingredient}: ${measure}`;
-            ingredientsList.appendChild(listItem);
-        }
-    }
-
-    ingredientsDiv.appendChild(ingredientsList);
-}
-
 //Function to be called when "Search Ingredients" button is clicked
 function searchIngredients() {
     var searchTerm = document.getElementById('search-input').value;
