@@ -1,4 +1,4 @@
-var broccoli = "747447";
+/* var broccoli = "747447";
 var url =
   "https://api.nal.usda.gov/fdc/v1/food/" +
   broccoli +
@@ -10,7 +10,7 @@ fetch(url)
     console.log("total protein :", data.foodNutrients[0].amount);
     console.log("total fats :", data.foodNutrients[1].amount);
     console.log("Carbohydrates :", data.foodNutrients[2].amount);
-  });
+  }); */
 
 const apiKey = "1";
 const apiUrl = `https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast`;
@@ -101,13 +101,22 @@ fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=chicken")
   });
 
 function getInformation(ingredients) {
-  /* for (i = 0; i < ingredients.length; i++)  */ {
+  /*  for (i = 0; i < ingredients.length; i++) */ {
     fetch(
-      `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=DEMO_KEY&query=${ingredients[0]}`
+      `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${"CgqMH6hMOSehsdQ4BUkItOfNsoU7eCCHr4D8YL1h"}&query=${
+        ingredients[0]
+      }`
     )
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          console.log("error");
+        }
+      })
       .then((data) => {
-        console.log(data.foods);
+        const food = data.foods[0];
+        console.log(food.foodNutrients);
       });
   }
 }
