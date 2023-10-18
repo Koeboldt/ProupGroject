@@ -114,8 +114,11 @@ fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=chicken")
 function saveRecipe(event) {
   event.preventDefault();
   let saved = JSON.parse(localStorage.getItem("recipies")) || [];
-  saved.push($(".recipeName").text());
-  console.log("Saved Recipies:", saved);
+  let newRecipe = $(".recipeName").text();
+  if (!saved.includes(newRecipe)) {
+    saved.push(newRecipe);
+    console.log("Saved Recipies:", saved);
+  }
   localStorage.setItem("recipies", JSON.stringify(saved));
 }
 
