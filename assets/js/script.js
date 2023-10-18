@@ -72,27 +72,51 @@ fetch("https://www.themealdb.com/api/json/v1/1/filter.php?c=chicken")
         }
         console.log("Ingridents:", ingredients);
         console.log("Ingridents list:", Object.keys(ingredients));
-        getInformation(Object.keys(ingredients));
+        // getInformation(Object.keys(ingredients));
       });
   });
 
-function getInformation(ingredients) {
-  /*  for (i = 0; i < ingredients.length; i++) */ {
+/* function getInformation(ingredients) {
+  for (i = 0; i < ingredients.length; i++) {
+    let ingredient = ingredients[i].replace(" ", "-");
     fetch(
-      `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${"CgqMH6hMOSehsdQ4BUkItOfNsoU7eCCHr4D8YL1h"}&query=${
-        ingredients[0]
-      }`
+      `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${keys.fdcKey2}&query=${ingredient}`
     )
       .then((response) => {
         if (response.ok) {
           return response.json();
         } else {
-          console.log("error");
+          console.log(
+            "Error URL:",
+            `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${keys.fdcKey2}&query=${ingredient}`
+          );
         }
       })
       .then((data) => {
+        console.log(
+          "URL:",
+          `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${keys.fdcKey2}&query=${ingredient}`
+        );
         const food = data.foods[0];
-        console.log(food.foodNutrients);
+        let nutrients = food.foodNutrients;
+        var nutrientsObj = {};
+        console.log("Ingrident:", food.ingredients);
+        console.log("Serving Size:", food.servingSize + food.servingSizeUnit);
+        for (i = 0; i < nutrients.length; i++) {
+          nutrientsObj[nutrients[i].nutrientName] =
+            nutrients[i].nutrientNumber + nutrients[i].unitName.toLowerCase();
+        }
+        console.log("Nutrients:", nutrientsObj);
       });
   }
+} */
+
+function saveRecipe(event) {
+  event.preventDefault();
+  let saved = JSON.parse(localStorage.getItem("recipies")) || [];
+  saved.push($(".recipeName").text());
+  console.log("Saved Recipies:", saved);
+  localStorage.setItem("recipies", JSON.stringify(saved));
 }
+
+$(document).delegate("#saveRecipe", "click", saveRecipe);
