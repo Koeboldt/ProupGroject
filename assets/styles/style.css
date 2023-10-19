@@ -21,7 +21,7 @@ header {
    .title {
     text-align:center;
     background-color: #ffffff;
-    margin: 30px;
+    
     
 
    }
@@ -37,6 +37,9 @@ header {
     border:2px solid #0a0f07;
     margin:30px;
     border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 
    }
 
