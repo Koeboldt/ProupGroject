@@ -12,31 +12,39 @@
 
  -->
     <script src="./assets/script.js"></script>
-    <link rel="stylesheet" href="./assets/style.css"/>
+    <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 
 <body>
     <div class="title">
         <h1>CHEF'S CHOICE</h1>
+
     </div>
-    <div class="title-under">
-        <h4>Recipe Generator</h4>
-    </div>
-    <img class="background-image" src="assets/images/img-background.jpg" />  
+    
+    
 
     <div class="container">
         <!-- Section for displaying meal search cards -->
        <div class="mealCards">
            <!-- Section for the meal search title -->
            <div class="mealSearch">
-               <h2 class="title">Search for Ingredients</h2>
+               <h2 class="title">Search for Recipe</h2>
+               <button class="search-btn btn" id="search-btn" onclick="searchIngredients()">Search Random Recipe</button>
            </div>
-             <!-- Section for the search input and button -->
-           <div class="mealCardDisplay">
-               <input type="text" class="search content" placeholder="Enter ingredient" id="search-input">
-               <button class="search-btn btn" id="search-btn" onclick="searchIngredients()">Search Ingredients</button>
-           </div>
-       </div>
+           
+            
+           
+        </div>
+         <!-- Section for the search input and button -->
+        <div class="mealCardDisplay">
+            <input type="text" class="search content" placeholder="Enter ingredient" id="search-input">
+            <button class="search-btn btn" id="search-btn" onclick="searchIngredients()">Search Ingredients</button>
+        </div>
+
+        <div class="mealCardDisplay">
+            <input type="text" class="search content" placeholder="Enter Country" id="search-input">
+            <button class="search-btn btn" id="search-btn" onclick="searchIngredients()">Search Country</button>
+        </div>
          <!-- Section for displaying ingredients -->
        <div id="ingredient-display"></div> <!-- Display ingredient information here -->
        <!-- Section for displaying recipes -->
