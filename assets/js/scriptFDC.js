@@ -46,5 +46,3 @@ function getInformation(ingredient) {
       console.log("Nutrients %:", nutrientsObj2);
     });
 }
-
-getInformation("Shallots");
