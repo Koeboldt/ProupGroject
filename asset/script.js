@@ -201,11 +201,9 @@ function displayMealsWithIngredients(meals) {
 
 // Function to display a recipe
 function displayRecipe(mealId) {
-    const recipeDisplay = document.getElementById('recipe-display');
-    recipeDisplay.innerHTML = '';  // Clear previous content
-
+    const recipeModal = document.getElementById('recipe-modal'); // Add an HTML element with the ID 'recipe-modal' in your HTML.
     if (!mealId) {
-        return;  // Do nothing if there's no mealId
+        return; // Do nothing if there's no mealId.
     }
 
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
@@ -213,49 +211,29 @@ function displayRecipe(mealId) {
         .then(data => {
             if (data.meals && data.meals.length > 0) {
                 const meal = data.meals[0];
-                const recipeDiv = document.createElement('div');
-                recipeDiv.className = 'recipe-item';
 
-                const recipeName = document.createElement('h3');
-                recipeName.textContent = meal.strMeal;
+                // Construct the recipe content
+                const recipeContent = `
+                    <h3>${meal.strMeal}</h3>
+                    <h4>Ingredients:</h4>
+                    <ul>
+                        ${getIngredientsList(meal)}
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <p>${meal.strInstructions}</p>
+                    <button id="close-recipe">Close</button>
+                `;
 
-                // Display ingredients
-                const ingredientsHeader = document.createElement('h4');
-                ingredientsHeader.textContent = 'Ingredients:';
-                recipeDiv.appendChild(ingredientsHeader);
+                recipeModal.innerHTML = recipeContent;
 
-                const ingredientsList = document.createElement('ul');
-                for (let i = 1; i <= 20; i++) {
-                    const ingredient = meal['strIngredient' + i];
-                    const measure = meal['strMeasure' + i];
-                    if (ingredient && measure) {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = `${ingredient}: ${measure}`;
-                        ingredientsList.appendChild(listItem);
-                    }
-                }
-                recipeDiv.appendChild(ingredientsList);
+                // Display the modal
+                recipeModal.style.display = 'block';
 
-                // Display instructions
-                const instructionsHeader = document.createElement('h4');
-                instructionsHeader.textContent = 'Instructions:';
-                recipeDiv.appendChild(instructionsHeader);
-
-                const recipeInstructions = document.createElement('p');
-                recipeInstructions.textContent = meal.strInstructions;
-
-                recipeDiv.appendChild(recipeName);
-                recipeDiv.appendChild(recipeInstructions);
-
-                // Add a "Close" button
-                const closeButton = document.createElement('button');
-                closeButton.textContent = 'Close';
+                // Close the modal when the "Close" button is clicked
+                const closeButton = document.getElementById('close-recipe');
                 closeButton.addEventListener('click', () => {
-                    recipeDisplay.innerHTML = ''; // Clear the recipe display
+                    recipeModal.style.display = 'none';
                 });
-                recipeDiv.appendChild(closeButton);
-
-                recipeDisplay.appendChild(recipeDiv);
             } else {
                 alert('Recipe not found.');
             }
@@ -263,6 +241,18 @@ function displayRecipe(mealId) {
         .catch(error => {
             console.error('Error fetching recipe:', error);
         });
+}
+
+function getIngredientsList(meal) {
+    let ingredientsList = '';
+    for (let i = 1; i <= 20; i++) {
+        const ingredient = meal['strIngredient' + i];
+        const measure = meal['strMeasure' + i];
+        if (ingredient && measure) {
+            ingredientsList += `<li>${ingredient}: ${measure}</li>`;
+        }
+    }
+    return ingredientsList;
 }
 
 

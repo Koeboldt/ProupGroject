@@ -38,6 +38,79 @@
     cursor: pointer;
 }
 
+/* Recipe Modal */
+#recipe-modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Center the modal */
+    width: 700px; /* Adjust the width as needed */
+    height: 500px; /* Set the height to match the width for a square shape */
+    background-color: #fff; /* White background */
+    border: 1px solid #ccc; /* Add a border */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Box shadow for the modal */
+    border-radius: 5px; /* Rounded corners */
+    text-align: center; /* Center align content */
+}
+
+/* Recipe Modal Content */
+#recipe-modal .modal-content {
+    padding: 20px;
+}
+
+/* Close Button */
+#recipe-modal .close {
+    color: #333;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#recipe-modal .close:hover {
+    color: #000;
+}
+
+/* Recipe Title */
+#recipe-modal h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Ingredients List */
+#recipe-modal ul {
+    list-style-type: none;
+    margin: 0px; 
+    padding-left: 20px;
+}
+
+#recipe-modal ul li {
+    margin: 5px 0;
+}
+
+/* Instructions */
+#recipe-modal p {
+    margin-top: 10px;
+}
+
+/* Close Button for the Recipe Modal */
+#recipe-modal #close-recipe {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#recipe-modal #close-recipe:hover {
+    background-color: #000;
+}
+
 /* styling for search */
 #search-history {
     text-transform: capitalize;
