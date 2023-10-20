@@ -5,22 +5,21 @@
 header {
     padding: 40px;
     text-align: center;
-    background: rgb(101, 37, 37);
+    background: rgb(136, 61, 61);
     color: black;
 }
 
  body {
     color:  #0a0f07 ;
      background-color:  #ffffff  ;
-     background-image: url(../images/img-background.jpg);
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover;
+     
     }
    
    .title {
     text-align:center;
-    background-color: #ffffff;
+    background-color: #3b726c;
+    padding: 50px 10px 15px 10px;;
+   
     
     
 
@@ -35,13 +34,10 @@ header {
    .mealCards,.mealCardDisplay {
     background-color: #ffffff;
     border:2px solid #0a0f07;
-    margin:30px;
-    border-radius: 10px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-
+    margin:10px;
+    border-radius: 15px;
+    margin-top: 300px;
+    
    }
 
-
-  
+   
