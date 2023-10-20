@@ -32,11 +32,45 @@ function saveRecipe(event) {
   localStorage.setItem("recipies", JSON.stringify(saved));
 }
 
+function showSaved() {
+  let saved = JSON.parse(localStorage.getItem("recipies")) || [];
+  $("#ingredient-display").html("");
+  for (i = 0; i < saved.length; i++) {
+    fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${saved[i]}`) //Fetch meals based on the ingredient
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        if (data.meals && data.meals.length > 0) {
+          const meal = data.meals[0];
+          const mealDiv = $("<div class='meal-item'></div>");
+          $(
+            `<img class='meal-image' src="${meal.strMealThumb}" alt="${meal.strMeal}">`
+          ).appendTo(mealDiv);
+          const mealName = $(`<h3>${meal.strMeal}</h3>`);
+          const recipeButton = $("<button>View Recipe</button>");
+          recipeButton.on("click", () => {
+            window.location = "recipe.html?mealId=" + meal.idMeal;
+          });
+          mealDiv
+            .append(mealName, recipeButton)
+            .appendTo("#ingredient-display");
+        } else {
+          displayModal("No saved recipies.");
+        }
+      })
+      .catch(function (error) {
+        console.error("Error fetching data:", error);
+      });
+  }
+}
+
 function searchMeal() {
   //Function to be called when "Search Ingredients" button is clicked
-  const searchTerm = $("#search-input").val();
+  const searchTerm = $("#mealSearch").val();
+  console.log("Searching for:", searchTerm);
   if (!searchTerm) {
-    displayModal("Please enter an ingredient.");
+    displayModal("Please enter a meal.");
     return;
   }
   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`) //Fetch meals based on the ingredient
@@ -55,8 +89,33 @@ function searchMeal() {
     });
 }
 
+function searchIngredients() {
+  //Function to be called when "Search Ingredients" button is clicked
+  const searchTerm = $("#ingridentSearch").val();
+  console.log("Searching for:", searchTerm);
+  if (!searchTerm) {
+    displayModal("Please enter an ingredient.");
+    return;
+  }
+  fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchTerm}`) //Fetch meals based on the ingredient
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (data.meals && data.meals.length > 0) {
+        displayMealsList(data.meals);
+      } else {
+        displayModal("No meals found with the provided ingredient.");
+      }
+    })
+    .catch(function (error) {
+      console.error("Error fetching data:", error);
+    });
+}
+
 function displayMealsList(meals) {
   //Function to display meals with ingredients
+  console.log(meals);
   $("#ingredient-display").html(""); // Clear previous content
   meals.forEach((meal) => {
     //Iterate through meals and display meal details
