@@ -5,6 +5,39 @@
 header {
     padding: 40px;
     text-align: center;
-    background: rgb(101, 37, 37);
+    background: rgb(136, 61, 61);
     color: black;
 }
+
+ body {
+    color:  #0a0f07 ;
+     background-color:  #ffffff  ;
+     
+    }
+   
+   .title {
+    text-align:center;
+    background-color: #3b726c;
+    padding: 50px 10px 15px 10px;;
+   
+    
+    
+
+   }
+    
+   .container{
+    display:flex;
+    
+
+   }
+
+   .mealCards,.mealCardDisplay {
+    background-color: #ffffff;
+    border:2px solid #0a0f07;
+    margin:10px;
+    border-radius: 15px;
+    margin-top: 300px;
+    
+   }
+
+   
