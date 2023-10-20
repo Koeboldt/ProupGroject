@@ -164,9 +164,9 @@ function displayRecipe(mealId) {
             ).appendTo("#ingridentsList");
           }
         }
-
-        // Display instructions
-        $("#recipeInstructions").text(meal.strInstructions);
+        $("#recipeImg").attr("src", meal.strMealThumb); //Add the meal image source
+        $("#recipeImg").attr("alt", meal.strMeal);
+        $("#recipeInstructions").text(meal.strInstructions); // Display instructions
       } else {
         alert("Recipe not found.");
       }
