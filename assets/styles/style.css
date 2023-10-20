@@ -10,25 +10,19 @@ header {
 }
 
  body {
-    color:  #0a0f07 ;
-     background-color:  #ffffff  ;
+    color:#ffffff ;
+     background-color: #cad2c5 ;
      
     }
    
    .title {
     text-align:center;
-    background-color: #3b726c;
+    background-color:  #84a98c;
     padding: 50px 10px 15px 10px;;
-   
-    
-    
-
    }
     
    .container{
     display:flex;
-    
-
    }
 
    .mealCards,.mealCardDisplay {
@@ -40,4 +34,11 @@ header {
     
    }
 
-   
+   .nav-wrapper{
+    background-color:#52796f;
+    
+   }
+   #nav-mobile {
+   text-indent: 50px;
+
+   }
