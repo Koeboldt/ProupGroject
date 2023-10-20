@@ -29,11 +29,11 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
   <body>
+    
+
     <div class="title">
-        <h1>Chef's Vision</h1>
+        <h1>Chef 's Vision</h1>
     </div>
-    
-    
 
     <div class="container">
         <!-- Section for displaying meal search cards -->
@@ -41,7 +41,8 @@
            <!-- Section for the meal search title -->
            <div class="mealSearch">
                <h2 class="title">Search for Recipe</h2>
-               <button class="search-btn btn" id="search-btn" onclick="searchIngredients()">Search Random Recipe</button>
+               <input type="text" class="search content" placeholder="Enter ingredient" id="search-input">
+               <button class="search-btn btn" id="search-btn1" onclick="searchIngredients()">Search Random Recipe</button>
            </div>
            
             
@@ -49,13 +50,15 @@
         </div>
          <!-- Section for the search input and button -->
         <div class="mealCardDisplay">
+            <h2 class="title">Search for ingredient</h2>
             <input type="text" class="search content" placeholder="Enter ingredient" id="search-input">
-            <button class="search-btn btn" id="search-btn" onclick="searchIngredients()">Search Ingredients</button>
+            <button class="search-btn btn" id="search-btn2" onclick="searchIngredients()">Search Ingredients</button>
         </div>
 
         <div class="mealCardDisplay">
+            <h2 class="title">Search By Country</h2>
             <input type="text" class="search content" placeholder="Enter Country" id="search-input">
-            <button class="search-btn btn" id="search-btn" onclick="searchIngredients()">Search Country</button>
+            <button class="search-btn btn" id="search-btn3" onclick="searchIngredients()">Search Country</button>
         </div>
          <!-- Section for displaying ingredients -->
        <div id="ingredient-display"></div> <!-- Display ingredient information here -->
