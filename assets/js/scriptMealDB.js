@@ -1,13 +1,11 @@
 //Function to display a modal with a message
 function displayModal(message) {
-  const modal = $("#modal");
   $("#modal-message").text(message); //Set the message content
   $("#modal").css("display", "block"); //Display the modal
   $(".close").on("click", () => {
     //Close the modal when the user clicks on the "x" button
     $("#modal").css("display", "none");
   });
-  //Close the modal when the user clicks anywhere outside of the modal
   $(window).on("click", (event) => {
     //Close the modal when the user clicks anywhere outside of the modal
     if ($(event.target).attr("id") == "modal") {
