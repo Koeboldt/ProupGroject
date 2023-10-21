@@ -164,9 +164,9 @@ function displayRecipe(mealId) {
             ).appendTo("#ingridentsList");
           }
         }
-
         // Display instructions
         $("#recipeInstructions").text(meal.strInstructions);
+        $("title").text(meal.strMeal);
       } else {
         alert("Recipe not found.");
       }
@@ -180,6 +180,4 @@ $("#closeBtn").on("click", () => {
   window.location = "index.html";
 });
 $("#saveRecipe").on("click", saveRecipe);
-$(document).delegate(".ingredient", "click", (event) => {
-  console.log($(event.target).text());
-});
+
