@@ -173,7 +173,7 @@ function displayRecipe(mealId) {
     });
 }
 
-$("#closeBtn").on("click", () => {
+$("#closeButton").on("click", () => {
   window.location = "index.html";
 });
 $("#saveRecipe").on("click", saveRecipe);
