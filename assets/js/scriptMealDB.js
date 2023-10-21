@@ -164,6 +164,7 @@ function displayRecipe(mealId) {
         $("#recipeImg").attr("src", meal.strMealThumb); //Add the meal image source
         $("#recipeImg").attr("alt", meal.strMeal);
         $("#recipeInstructions").text(meal.strInstructions); // Display instructions
+        $("title").text(meal.strMeal);
       } else {
         alert("Recipe not found.");
       }
