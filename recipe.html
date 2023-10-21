@@ -19,11 +19,19 @@
 </head>
 <body>
     <div>
-    <!-- Section for displaying ingredients -->
-    <div id="ingredient-display"></div>
-    <!-- Display ingredient information here -->
     <!-- Section for displaying recipes -->
-    <div id="recipe-display"></div>
+    <div id="recipe-display">
+        <div class="recipe-item">
+            <h3 id="recipeName"></h3>
+            <h4>Ingredients:</h4>
+            <ul id="ingridentsList">
+            </ul>
+            <h4>Instructions:</h4>
+            <p id="recipeInstructions"></p>
+            <button id="saveRecipe">Save Recipe</button>
+            <button id="closeButton">Close</button>
+        </div>
+    </div>
 </div>
     <script src="./assets/js/config.js"></script>
     <script src="./assets/js/scriptMealDB.js"></script>

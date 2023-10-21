@@ -1,91 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Generator</title>
-    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="css/materialize.min.css"
-      media="screen,projection"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--
-
-    use this space for all the links to other apis,
-    and stuff leaving these at the bottom
-
- -->
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.js"
-      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles/style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="title">
-      <h1>CHEF'S CHOICE</h1>
+        <h1>Chef 's Vision</h1>
     </div>
-    <div class="title-under">
-      <h4>Recipe Generator</h4>
-    </div>
-    <img class="background-image" src="assets/images/img-background.jpg" />
 
     <div class="container">
-      <!-- Section for displaying meal search cards -->
-      <div class="mealCards">
-        <!-- Section for the meal search title -->
-        <div class="mealSearch">
-          <h2 class="title">Search for Ingredients</h2>
+        <!-- Section for displaying meal search cards -->
+        <div class="mealCards">
+            <!-- Section for the meal search title -->
+            <div class="mealSearch">
+                <h2 class="title">Search for Recipe</h2>
+                <input type="text" class="search content" placeholder="Enter recipie" id="mealSearch">
+                <button class="search-btn btn" id="search-btn1" onclick="searchMeal()">Search for a Recipe</button>
+            </div>
         </div>
         <!-- Section for the search input and button -->
         <div class="mealCardDisplay">
-          <input
-            type="text"
-            class="search content"
-            placeholder="Enter ingredient"
-            id="search-input"
-          />
-          <button
-            class="search-btn btn"
-            id="search-btn"
-            onclick="searchIngredients()"
-          >
-            Search Ingredients
-          </button>
+            <h2 class="title">Search for ingredient</h2>
+            <input type="text" class="search content" placeholder="Enter ingredient" id="ingridentSearch">
+            <button class="search-btn btn" id="search-btn2" onclick="searchIngredients()">Search Ingredients</button>
         </div>
-      </div>
-      <!-- Section for displaying ingredients -->
-      <div id="ingredient-display"></div>
-      <!-- Display ingredient information here -->
-      <!-- Section for displaying recipes -->
-      <div id="recipe-display"></div>
-      <!-- Display recipe information here -->
+        <!-- Section for the search input and button -->
+        <div class="mealCardDisplay">
+            <h2 class="title">Show Saved Recipies</h2>
+            <button class="search-btn btn" id="search-btn3" onclick="showSaved()">Saved Recipies</button>
+        </div>
+    </div>
+    <!-- Section for displaying ingredients -->
+    <div id="ingredient-display"></div>
+    <!-- Display ingredient information here -->
+    <!-- Section for displaying recipes -->
+    <div id="recipe-display"></div>
+    <!-- Display recipe information here -->
     </div>
 
     <!-- Modal for displaying messages -->
     <div id="modal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <!-- Close button for the modal -->
-        <p id="modal-message"></p>
-        <!-- Message content goes here -->
-      </div>
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- Close button for the modal -->
+            <p id="modal-message"></p>
+            <!-- Message content goes here -->
+        </div>
     </div>
     <div class="nutrientDisplay">
         <input type="text" class="nutrientSearch" class="search content" placeholder="Enter ingredient" id="search-input" />
         <button class="search-btn btn" id="nutrientSearchBtn"> Search Ingredient </button>
       </div>
       <div id="nutritionFax"></div>
+
+    <!-- About Us paragraph -->
+    <div id="about-us"></div>
+      <div class="welcome-message">
+        <h2>
+          Hello and welcome to Chef's Vision, your go-to destination for recipes that you can easily prepare in the comfort of your own kitchen, and We are thrilled to share a little bit about us and the inspiration behind this venture.
+       </h2>
+      </div>
+      <div class="what-you-find">
+        <h2>What You'll Find</h2>
+        <p>
+          Whether you're a novice cook looking for beginner-friendly recipes or an experienced home chef seeking culinary inspiration, you'll find a wealth of content here. From quick weeknight dinners and favorite classics to international cuisines and favorited dishes from across the world, We will provide you with a extensive variety of dishes that can all be made from home.
+        </p>
+       </div>
+      <div class="why-this-website">
+        <h2>Why This Website?</h2>
+       <p>
+        Chef's Vision was born out of a simple idea: to make the joy of cooking accessible to everyone, regardless of their experience or skill level. We firmly believe that a delicious homemade meal has the power to bring people together, create cherished memories, and nourish both body and soul.
+       </p>
     <script src="./assets/js/config.js"></script>
     <script src="./assets/js/scriptMealDB.js"></script>
     <script src="./assets/js/scriptFDC.js"></script>
-  </body>
+</body>
