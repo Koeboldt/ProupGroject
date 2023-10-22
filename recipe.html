@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!--
-
-    use this space for all the links to other apis,
-    and stuff leaving these at the bottom
-
- -->
+    <title>Recipe</title>
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./assets/styles/style.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div>
-    <!-- Section for displaying recipes -->
-    <div id="recipe-display">
+      <!-- Section for displaying recipes -->
+      <div id="recipe-display">
         <div class="recipe-item">
-            <h3 id="recipeName"></h3>
-            <h4>Ingredients:</h4>
-            <ul id="ingridentsList">
-            </ul>
-            <h4>Instructions:</h4>
-            <p id="recipeInstructions"></p>
-            <button id="saveRecipe">Save Recipe</button>
-            <button id="closeButton">Close</button>
+          <h3 id="recipeName"></h3>
+          <img id="recipeImg" />
+          <h4>Ingredients:</h4>
+          <ul id="ingridentsList"></ul>
+          <h4>Instructions:</h4>
+          <p id="recipeInstructions"></p>
+          <button id="saveRecipe">Save Recipe</button>
+          <button id="closeButton">Close</button>
         </div>
+      </div>
     </div>
-</div>
     <script src="./assets/js/config.js"></script>
     <script src="./assets/js/scriptMealDB.js"></script>
     <script src="./assets/js/scriptFDC.js"></script>
     <script>
-        let ID = new URLSearchParams(window.location.search).get("mealId")
-        console.log(ID);
-        displayRecipe(ID);
+      let ID = new URLSearchParams(window.location.search).get("mealId");
+      console.log(ID);
+      displayRecipe(ID);
     </script>
-</body>
+  </body>
 </html>

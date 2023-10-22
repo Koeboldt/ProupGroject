@@ -22,7 +22,7 @@ function getInformation(ingredient) {
       let nutrients = food.foodNutrients;
       var nutrientsObj = {};
       var nutrientsObj2 = {};
-      console.log("Ingrident:", food.ingredients, food);
+      console.log("Ingrident:", food.description, food);
       console.log("Serving Size:", food.servingSize + food.servingSizeUnit);
       for (i = 0; i < nutrients.length; i++) {
         nutrientsObj[nutrients[i].nutrientName] =
@@ -36,4 +36,6 @@ function getInformation(ingredient) {
     });
 }
 
-getInformation("Shallots");
+$(document).delegate(".ingredient", "click", (event) => {
+  console.log($(event.target).text());
+});
