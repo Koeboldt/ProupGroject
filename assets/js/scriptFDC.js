@@ -23,9 +23,17 @@ function getInformation(ingredient) {
       var nutrientsObj = {};
       var nutrientsObj2 = {};
       console.log("Ingrident:", food.description, food);
-      $("#ingredient").text(ingredient);
-      console.log("Serving Size:", food.servingSize + food.servingSizeUnit);
-      $("#servingSize").text(food.servingSize + food.servingSizeUnit);
+      var name = "";
+      food.description.split(" ").forEach((word) => {
+        name += word.charAt(0) + word.slice(1).toLowerCase() + " ";
+      });
+      $("#ingredient").text(name);
+      if (food.servingSize) {
+        console.log("Serving Size:", food.servingSize, food.servingSizeUnit);
+        $("#servingSize").text(food.servingSize + food.servingSizeUnit);
+      } else {
+        $("#servingSize").text("undefined");
+      }
       for (i = 0; i < nutrients.length; i++) {
         $("<li></li>")
           .text(
