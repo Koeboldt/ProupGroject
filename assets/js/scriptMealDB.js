@@ -60,7 +60,8 @@ function showSaved() {
   }
 }
 
-function searchMeal() {
+function searchMeal(event) {
+  event.preventDefault();
   //Function to be called when "Search Ingredients" button is clicked
   const searchTerm = $("#mealSearch").val();
   console.log("Searching for:", searchTerm);
@@ -84,7 +85,8 @@ function searchMeal() {
     });
 }
 
-function searchIngredients() {
+function searchIngredients(event) {
+  event.preventDefault();
   //Function to be called when "Search Ingredients" button is clicked
   const searchTerm = $("#ingridentSearch").val();
   console.log("Searching for:", searchTerm);
