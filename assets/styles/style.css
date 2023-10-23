@@ -128,3 +128,7 @@ p {
 .mealCards, .mealCardDisplay, .nutrientDisplay {
     text-align: center;
 }
+
+#ingridentsList{
+    list-style: none;
+}
