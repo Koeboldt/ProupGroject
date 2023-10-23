@@ -91,20 +91,20 @@ function getInformation(searchQuery) {
         foodListItem.attr("data-FDCID", data.foods[i1].fdcId);
         foodListItem.attr(
           "data-protein",
-          "protein :" +
-            data.foods[i1].foodNutrients[0].nutrientNumber +
+          "protein: " +
+            data.foods[i1].foodNutrients[0].value +
             data.foods[i1].foodNutrients[0].unitName
         );
         foodListItem.attr(
           "data-fat",
-          "total fat :" +
-            data.foods[i1].foodNutrients[1].nutrientNumber +
+          "total fat: " +
+            data.foods[i1].foodNutrients[1].value +
             data.foods[i1].foodNutrients[1].unitName
         );
         foodListItem.attr(
           "data-carbs",
-          "carbs :" +
-            data.foods[i1].foodNutrients[2].nutrientNumber +
+          "carbs: " +
+            data.foods[i1].foodNutrients[2].value +
             data.foods[i1].foodNutrients[2].unitName
         );
         foodListItem.attr("id", "foodDesc-" + i1);
@@ -127,9 +127,9 @@ var nutritionOptionsEl = $("#nutritionFax");
 $("#nutritionFax").on("click", ".foodDescription", function () {
   $("#nutritionFax").empty();
   console.log($(this).attr("data-protein"));
-  $("#nutritionFax").append($(this).attr("data-protein"));
-  $("#nutritionFax").append($(this).attr("data-fat"));
-  $("#nutritionFax").append($(this).attr("data-carbs"));
+  $("#nutritionFax").append($(`<li>${$(this).attr("data-protein")}</li>`));
+  $("#nutritionFax").append($(`<li>${$(this).attr("data-fat")}</li>`));
+  $("#nutritionFax").append($(`<li>${$(this).attr("data-carbs")}</li>`));
 });
 
 $("#nutrientSearchBtn").click(function () {
