@@ -76,3 +76,55 @@ body {
 .ingredient:hover {
   cursor: pointer;
 }
+
+.welcome-message {
+    background: #3b726c;
+    display: inline-block;
+    text-align: center;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.what-you-find {
+    background: #3b726c;
+    display: inline-block;
+    text-align: center;
+}
+
+.why-this-website {
+    background: #3b726c;
+    display: inline-block;
+    text-align: center;
+}
+
+p {
+    font-size: 30px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+.meal-item {
+    text-align: center;
+    padding-top: 40px;
+}
+.meal-item img {
+    max-height: 300px;
+}
+
+.recipe-item, ul {
+    text-align: center;
+    padding-top: 20px;
+    
+}
+#recipeInstructions {
+    font-size: 20px;
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+#recipeImg {
+    max-height: 400px;
+}
+
+.mealCards, .mealCardDisplay, .nutrientDisplay {
+    text-align: center;
+}
