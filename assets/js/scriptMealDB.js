@@ -114,6 +114,7 @@ function displayMealsList(meals) {
   //Function to display meals with ingredients
   console.log(meals);
   $("#ingredient-display").html(""); // Clear previous content
+  $("#nutritionFax").empty();
   meals.forEach((meal) => {
     //Iterate through meals and display meal details
     const mealDiv = $("<div class='meal-item'></div>");
