@@ -66,7 +66,7 @@ function searchMeal(event) {
   const searchTerm = $("#mealSearch").val();
   console.log("Searching for:", searchTerm);
   if (!searchTerm) {
-    displayModal("Please enter a meal.");
+    displayModal("Please enter a recipe name.");
     return;
   }
   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`) //Fetch meals based on the ingredient
@@ -77,7 +77,7 @@ function searchMeal(event) {
       if (data.meals && data.meals.length > 0) {
         displayMealsList(data.meals);
       } else {
-        displayModal("No meals found with the provided ingredient.");
+        displayModal("No recipies found with the provided name.");
       }
     })
     .catch(function (error) {
