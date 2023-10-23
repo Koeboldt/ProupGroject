@@ -34,15 +34,40 @@ header {
     display:flex;
    }
 
-   .mealCards,.mealCardDisplay {
+   .mealCards,.mealCardDisplay,.mealCardPosition {
     background-color: #ffffff;
     border:2px solid #0a0f07;
     margin:10px;
     border-radius: 15px;
     margin-top: 300px;
-   
    }
-   
+
+   .mealCards{
+    width: 25%;
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    left:80px;
+
+   }
+   .mealCardDisplay{
+    width: 25%;
+    position: absolute ;
+    top: 60%;
+    transform: translateY(-50%);
+    left: 540px;
+    
+
+   }
+   .mealCardPosition{
+    width: 25%;
+    position: absolute ;
+    top: 60%;
+    transform: translateY(-50%);
+    left: 1000px;
+
+
+   }
    .nav-wrapper{
     background-color:#52796f;
     
@@ -69,3 +94,5 @@ header {
    font-size: 70px;
    margin-top: 80px;
   }
+  
+  
