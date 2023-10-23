@@ -1,13 +1,11 @@
 //Function to display a modal with a message
 function displayModal(message) {
-  const modal = $("#modal");
   $("#modal-message").text(message); //Set the message content
   $("#modal").css("display", "block"); //Display the modal
   $(".close").on("click", () => {
     //Close the modal when the user clicks on the "x" button
     $("#modal").css("display", "none");
   });
-  //Close the modal when the user clicks anywhere outside of the modal
   $(window).on("click", (event) => {
     //Close the modal when the user clicks anywhere outside of the modal
     if ($(event.target).attr("id") == "modal") {
@@ -62,12 +60,13 @@ function showSaved() {
   }
 }
 
-function searchMeal() {
+function searchMeal(event) {
+  event.preventDefault();
   //Function to be called when "Search Ingredients" button is clicked
   const searchTerm = $("#mealSearch").val();
   console.log("Searching for:", searchTerm);
   if (!searchTerm) {
-    displayModal("Please enter a meal.");
+    displayModal("Please enter a recipe name.");
     return;
   }
   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`) //Fetch meals based on the ingredient
@@ -78,7 +77,7 @@ function searchMeal() {
       if (data.meals && data.meals.length > 0) {
         displayMealsList(data.meals);
       } else {
-        displayModal("No meals found with the provided ingredient.");
+        displayModal("No recipies found with the provided name.");
       }
     })
     .catch(function (error) {
@@ -86,7 +85,8 @@ function searchMeal() {
     });
 }
 
-function searchIngredients() {
+function searchIngredients(event) {
+  event.preventDefault();
   //Function to be called when "Search Ingredients" button is clicked
   const searchTerm = $("#ingridentSearch").val();
   console.log("Searching for:", searchTerm);
@@ -114,6 +114,7 @@ function displayMealsList(meals) {
   //Function to display meals with ingredients
   console.log(meals);
   $("#ingredient-display").html(""); // Clear previous content
+  $("#nutritionFax").empty();
   meals.forEach((meal) => {
     //Iterate through meals and display meal details
     const mealDiv = $("<div class='meal-item'></div>");

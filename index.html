@@ -33,37 +33,33 @@
         <!-- Section for the meal search title -->
         <div class="mealSearch">
           <h2 class="title">Search for Recipe</h2>
-          <input
-            type="text"
-            class="search content"
-            placeholder="Enter recipie"
-            id="mealSearch"
-          />
-          <button
-            class="search-btn btn"
-            id="search-btn1"
-            onclick="searchMeal()"
-          >
-            Search for a Recipe
-          </button>
+          <form onsubmit="searchMeal(event)">
+            <input
+              type="text"
+              class="search content"
+              placeholder="Enter recipie"
+              id="mealSearch"
+            />
+            <button class="search-btn btn" id="search-btn1" type="submit">
+              Search for a Recipe
+            </button>
+          </form>
         </div>
       </div>
       <!-- Section for the search input and button -->
       <div class="mealCardDisplay">
         <h2 class="title">Search for ingredient</h2>
-        <input
-          type="text"
-          class="search content"
-          placeholder="Enter ingredient"
-          id="ingridentSearch"
-        />
-        <button
-          class="search-btn btn"
-          id="search-btn2"
-          onclick="searchIngredients()"
-        >
-          Search Ingredients
-        </button>
+        <form onsubmit="searchIngredients(event)">
+          <input
+            type="text"
+            class="search content"
+            placeholder="Enter ingredient"
+            id="ingridentSearch"
+          />
+          <button class="search-btn btn" id="search-btn2" type="submit">
+            Search Ingredients
+          </button>
+        </form>
       </div>
       <!-- Section for the search input and button -->
       <div class="mealCardDisplay">
@@ -85,7 +81,6 @@
           Search Ingredient
         </button>
       </div>
-      <div id="nutritionFax"></div>
     </div>
     <!-- Section for displaying ingredients -->
     <div id="ingredient-display"></div>
@@ -93,7 +88,7 @@
     <!-- Section for displaying recipes -->
     <div id="recipe-display"></div>
     <!-- Display recipe information here -->
-
+    <div id="nutritionFax"></div>
     <!-- Modal for displaying messages -->
     <div id="modal" class="modal">
       <div class="modal-content">
