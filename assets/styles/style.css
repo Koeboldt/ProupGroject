@@ -95,4 +95,25 @@ header {
    margin-top: 80px;
   }
   
-  
+  #info-section{
+  margin-bottom: 32px;
+  margin-top: 50px;
+  color: #ffffff;
+  background-color: #a4b6b1;
+  border-radius: 5px;
+  position: relative;
+  padding: 3px 3px 3px 15px;
+  top: 300px;
+  left:-100px
+}
+#chef-info{
+  margin-bottom: 50px;
+  margin-top: 50px;
+  color:#ffffff;
+  background-color:#a4b6b1;
+  border-radius: 5px;
+  position:relative;
+  padding: 3px 3px 3px 15px;
+  top:300px;
+  left: 100px
+}
