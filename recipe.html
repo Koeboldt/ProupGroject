@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe</title>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-  />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <script
       src="https://code.jquery.com/jquery-3.7.1.js"
       integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -48,12 +48,23 @@
     <script src="./assets/js/scriptMealDB.js"></script>
     <script src="./assets/js/scriptFDC.js"></script>
     <script>
-      let ID = new URLSearchParams(window.location.search).get("mealId");
+      let querrySearch = new URLSearchParams(window.location.search);
+      let ID = querrySearch.get("mealId");
+      let searchType = querrySearch.get("searchType");
+      let searchQuerry = querrySearch.get("searchQuerry")
+      console.log(searchType);
       console.log(ID);
       displayRecipe(ID);
+      $("#saveRecipe").on("click", saveRecipe);
       $(".close").on("click", () => {
         //Close the modal when the user clicks on the "x" button
         $("#modal").css("display", "none");
+      });
+      $("#closeButton").on("click", () => {
+        window.location = "index.html?searchType=" +
+        searchType +
+        "&searchQuerry=" +
+        searchQuerry;;
       });
       $(window).on("click", (event) => {
         //Close the modal when the user clicks anywhere outside of the modal

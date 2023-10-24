@@ -46,7 +46,7 @@ function showSaved() {
           const recipeButton = $("<button>View Recipe</button>");
           recipeButton.on("click", () => {
             window.location =
-              "recipe.html?mealId=" + meal.idMeal + "?search=saved";
+              "recipe.html?mealId=" + meal.idMeal + "&searchType=saved";
           });
           mealDiv
             .append(mealName, recipeButton)
@@ -62,7 +62,9 @@ function showSaved() {
 }
 
 function searchMeal(event) {
-  event.preventDefault();
+  if (event) {
+    event.preventDefault();
+  }
   //Function to be called when "Search Ingredients" button is clicked
   const searchTerm = $("#mealSearch").val();
   console.log("Searching for:", searchTerm);
@@ -76,7 +78,7 @@ function searchMeal(event) {
     })
     .then(function (data) {
       if (data.meals && data.meals.length > 0) {
-        displayMealsList(data.meals);
+        displayMealsList(data.meals, "recipe", searchTerm);
       } else {
         displayModal("No recipes found with the provided name.");
       }
@@ -87,7 +89,9 @@ function searchMeal(event) {
 }
 
 function searchIngredients(event) {
-  event.preventDefault();
+  if (event) {
+    event.preventDefault();
+  }
   //Function to be called when "Search Ingredients" button is clicked
   const searchTerm = $("#ingridentSearch").val();
   console.log("Searching for:", searchTerm);
@@ -101,7 +105,7 @@ function searchIngredients(event) {
     })
     .then(function (data) {
       if (data.meals && data.meals.length > 0) {
-        displayMealsList(data.meals, "ingredient");
+        displayMealsList(data.meals, "ingredient", searchTerm);
       } else {
         displayModal("No meals found with the provided ingredient.");
       }
@@ -111,7 +115,7 @@ function searchIngredients(event) {
     });
 }
 
-function displayMealsList(meals, searchType) {
+function displayMealsList(meals, searchType, searchQuerry) {
   //Function to display meals with ingredients
   console.log(meals);
   $("#ingredient-display").html(""); // Clear previous content
@@ -126,7 +130,12 @@ function displayMealsList(meals, searchType) {
     const recipeButton = $("<button>View Recipe</button>");
     recipeButton.on("click", () => {
       window.location =
-        "recipe.html?mealId=" + meal.idMeal + "?search=" + searchType;
+        "recipe.html?mealId=" +
+        meal.idMeal +
+        "&searchType=" +
+        searchType +
+        "&searchQuerry=" +
+        searchQuerry;
     });
     mealDiv.append(mealName, recipeButton).appendTo("#ingredient-display");
     // $("#ingredient-display").append(mealDiv);
@@ -176,8 +185,3 @@ function displayRecipe(mealId) {
       console.error("Error fetching recipe:", error);
     });
 }
-
-$("#closeButton").on("click", () => {
-  window.location = "index.html";
-});
-$("#saveRecipe").on("click", saveRecipe);
