@@ -14,8 +14,16 @@ Gavin Ducklow -  HTML, CSS
 Alex Majorowicz - JavaScript
 Xeng Xiong - JavaScript, HTML, CSS
 
+# Used APIS: 
+# https://www.themealdb.com/api.php - mealdb API 
+# U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. fdc.nal.usda.gov. - FDC database API for finding nutrition of food items 
+# https://materializecss.com/buttons.html - materialize used for GUI developement.
+          
+
+
 
 # Screen Shot of Application
+![image](https://github.com/Koeboldt/ProupGroject/assets/142840132/07b7cb4e-15a3-4615-8563-55f75e56dce8)
 
 
 # Link to deployed application
