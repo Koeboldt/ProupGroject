@@ -37,27 +37,29 @@
 
   /************ Try New Dishes Images for website styling ********************/
   #ramenBowl{
-    width: 300px;
+    width: 400px;
+    left: 80px
 
 
   }
   #Fries{
-    width: 300px;
+    width: 400px;
 
 
   }
-  #Brownies{
-    width: 300px;
 
-
-  }
   #saladBowl{
-    width: 300px;
+    width: 400px;
 
 
   }
 
+  #Brownies{
+    width: 400px;
+    left: 500px
 
+
+  }
 
   
   /************ Try New Dishes Images for website styling ********************/
@@ -68,8 +70,14 @@
   /***************Change the text color for the "What You'll Find"*****/
   .what-you-find h2,
   .what-you-find p {
-    color: #000000; 
+    color: #000000;
+    
   }
+
+    .what-you-find, .why-this-website{
+    background-color: #52796f;
+  }
+
   
   /***********Change the text color for the "Why This Website"******/
   .why-this-website h2,
@@ -80,9 +88,12 @@
   /*******Change the text color for the "Contact Us" section********/
   #contact-us h2,
   #contact-us p {
-    color: #000000; 
+    color: #ffffff; 
   }
-  
+
+  #contact-us{
+    background-color: #888;
+  }
   
   /******Content for nav bar****************/
   .nav-wrapper {
