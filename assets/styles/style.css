@@ -6,7 +6,7 @@
   
   /**************background color**********************/
   body {
-    color: #cfc2c2;
+    color: #0b0b0b;
     background-color: #ffffff;
   }
   /**************End ofbackground color**********************/
@@ -300,5 +300,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  
+  .sub-title h1 {
+    color: #ffffff;
+  }
   /* Style the meal card goes here */
