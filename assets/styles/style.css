@@ -6,8 +6,8 @@
   
   /**************background color**********************/
   body {
-    color: #ffffff;
-    background-color: #cad2c5;
+    color: #cfc2c2;
+    background-color: #ffffff;
   }
   /**************End ofbackground color**********************/
   
@@ -32,8 +32,39 @@
         color: rgb(255, 255, 255);
   }
   /************ End Welcome to Chef's vison content ********************/
+
+
+
+  /************ Try New Dishes Images for website styling ********************/
+  #ramenBowl{
+    width: 300px;
+
+
+  }
+  #Fries{
+    width: 300px;
+
+
+  }
+  #Brownies{
+    width: 300px;
+
+
+  }
+  #saladBowl{
+    width: 300px;
+
+
+  }
+
+
+
   
-  
+  /************ Try New Dishes Images for website styling ********************/
+
+
+
+
   /***************Change the text color for the "What You'll Find"*****/
   .what-you-find h2,
   .what-you-find p {
