@@ -29,7 +29,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="./index.html"> HOME</a></li>
           <li><a href="#info-section"> ABOUT </a></li>
-          <li><a href="#chef-info"> Contact Us</a></li>
+          <li onclick="showSaved()">Contact Us</li>
         </ul>
       </div>
     </nav>
@@ -162,7 +162,8 @@
         $("#mealSearch").val(searchQuerry);
         searchMeal();
       }
-      window.history.replaceState(null,"","index.html")
+      window.history.replaceState(null, "", "index.html");
+      $("#saved").on("click", showSaved());
     </script>
   </body>
 </html>
