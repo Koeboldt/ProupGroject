@@ -8,21 +8,21 @@ function getNutrition(ingredient) {
       } else {
         console.log(
           "Error URL:",
-          `https://api.nal.usda.gov/fdc/v1/foods/search?nutrients=203&nutrients=204&nutrients=205&api_key=${keys.fdcKey2}&query=${ingredient}`
+          `https://api.nal.usda.gov/fdc/v1/foods/search?&api_key=${keys.fdcKey2}&query=${ingredient}`
         );
       }
     })
     .then((data) => {
       console.log(
         "URL:",
-        `https://api.nal.usda.gov/fdc/v1/foods/search?nutrients=203&nutrients=204&nutrients=205&api_key=${keys.fdcKey2}&query=${ingredient}`
+        `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${keys.fdcKey2}&query=${ingredient}`
       );
       $("#nutrients").html("");
       const food = data.foods[1];
       let nutrients = food.foodNutrients;
       var nutrientsObj = {};
       var nutrientsObj2 = {};
-      console.log("Ingrident:", food.description, food);
+      console.log("Ingredient:", food.description, food);
       var name = "";
       food.description.split(" ").forEach((word) => {
         name += word.charAt(0) + word.slice(1).toLowerCase() + " ";
@@ -64,6 +64,20 @@ function getNutrition(ingredient) {
         nutrientsObj2[nutrients[i].nutrientName] += "%";
       }
       else if(nutrients[i].nutrientId === 1004){
+        $("<li></li>")
+          .text(
+            `${nutrients[i].nutrientName}: ${
+              nutrients[i].value + nutrients[i].unitName.toLowerCase()
+            }`
+          )
+          .appendTo("#nutrients");
+        nutrientsObj[nutrients[i].nutrientName] =
+          nutrients[i].value + nutrients[i].unitName.toLowerCase();
+        nutrientsObj2[nutrients[i].nutrientName] =
+          nutrients[i].percentDailyValue || "0";
+        nutrientsObj2[nutrients[i].nutrientName] += "%";
+      }
+        else if(nutrients[i].nutrientId === 1008){
         $("<li></li>")
           .text(
             `${nutrients[i].nutrientName}: ${
