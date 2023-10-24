@@ -3,55 +3,114 @@
   font-family: "Courier New", Courier, monospace, sans-serif;
 }
 
-header {
-  padding: 40px;
+
+/**************background color**********************/
+body {
+  color: #ffffff;
+  background-color: #cad2c5;
+}
+/**************End ofbackground color**********************/
+
+
+/******** Background img ****************/
+.banner {
+  width: 100%;
+  height: 50vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(../images/img-background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+/******** End of background img ****************/
+
+
+/************ Welcome to Chef's vison content ********************/
+.welcome-message {
+  background: #3b726c;
+  display: inline-block;
   text-align: center;
   background: rgb(136, 61, 61);
   color: black;
+  width: 100%;
+}
+/************ End Welcome to Chef's vison content ********************/
+
+
+/***************Change the text color for the "What You'll Find"*****/
+.what-you-find h2,
+.what-you-find p {
+  color: #000000; 
 }
 
-body {
-  color: #0a0f07;
-  background-color: #ffffff;
+/***********Change the text color for the "Why This Website"******/
+.why-this-website h2,
+.why-this-website p {
+  color: #000000; 
 }
 
-.title {
+/*******Change the text color for the "Contact Us" section********/
+#contact-us h2,
+#contact-us p {
+  color: #000000; 
+}
+
+
+/******Content for nav bar****************/
+.nav-wrapper {
+  background-color: #52796f;
+}
+
+#nav-mobile {
+  text-indent: 50px;
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  left: -80px;
+  top: -20px;
+}
+
+#nav-mobile li a {
+  font-size: 24px; 
+}
+/******End content for nav bar****************/
+
+
+/****** Content Chef's logo*****************/
+.brand-logo {
+  position: absolute;
+  left: 90px;
+}
+
+/******content Find Your recipe*****************/
+.sub-title {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
   text-align: center;
-  background-color: #3b726c;
-  padding: 50px 10px 15px 10px;
+  font-size: 70px;
+  margin-top: 80px;
 }
 
-.container {
-  display: flex;
-}
 
-.mealCards,
-.mealCardDisplay,
-.nutrientDisplay {
-  background-color: #ffffff;
-  border: 2px solid #0a0f07;
-  margin: 10px;
-  border-radius: 15px;
-  margin-top: 300px;
-}
-
+/************************** Modal content *****************/
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 1; /* stacking order */ 
   left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
+  top: 50%;
+  transform: translateY(-50%); /* Center it vertically */
+  width: 20%; 
+  height: 20%; 
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-  padding-top: 60px; /* Location of the box */
+  justify-content: center;
+  align-items: center;
 }
 
-/* Modal content */
 .modal-content {
-  background-color: #cad2c5;
+  background-color: #010200;
   margin: 5% auto; /* 5% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
@@ -59,7 +118,6 @@ body {
   border-radius: 10px;
 }
 
-/* Close button */
 .close {
   color: #aaa;
   float: right;
@@ -73,53 +131,64 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+/****************** End of modal content ******************/
 
-.ingredient:hover {
-  cursor: pointer;
-}
 
-.welcome-message {
-  background: #3b726c;
-  display: inline-block;
-  text-align: center;
-  background: rgb(136, 61, 61);
-  color: black;
-}
-
-body {
-  color: #ffffff;
-  background-color: #cad2c5;
-}
-
+/*******Content for recipe, ingredient, saved, and nutrition***************/
 .title {
+  margin: 10px;
   text-align: center;
-  background-color: #84a98c;
+  background-color: #52796f;
   padding: 50px 10px 15px 10px;
 }
+/*******End content for recipe, ingredient, saved, and nutrition***************/
 
-.banner {
-  width: 100%;
-  height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
-    url(../images/img-background.jpg);
-  background-size: cover;
-  background-position: center;
-}
 
-.container {
+/*********Content for meal card container**********************/
+.mealCardContainer {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+/*********End content for meal card container**********************/
 
-.mealCards,
-.mealCardDisplay,
-.mealCardPosition {
-  background-color: #ffffff;
-  border: 2px solid #0a0f07;
+
+/*************Content for meal card display and save display cards***************************/
+.mealCardDisplay, .saveRecipesDisplay, .nutrientDisplay {
+  flex: 1; /* Allow the cards to flex equally within the container */
+  max-width: 450px; 
+  min-width: 350px; 
+  height: auto; /* Allow the height to adjust based on content */
   margin: 10px;
+  border: 2px solid #0a0f07;
   border-radius: 15px;
-  margin-top: 300px;
+  text-align: center;
+  background-color: #ffffff;
 }
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .mealCardContainer {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center;
+  }
+  .mealCardDisplay, .saveRecipesDisplay {
+    max-width: 90%; /* Adjust the maximum width for smaller screens */
+    min-width: 90%; /* Adjust the minimum width for smaller screens */
+  }
+}
+/*************Content for meal card display and save display cards***************************/
+
+
+/*************Content for save recipe**********************/
+
+.saveRecipesDisplay button {
+  margin-top: 50px; 
+}
+/*************End Content for save recipe**********************/
+
+/*meal card goes here*/
+/************Content display meal cards************************/
 .mealCards {
   width: 25%;
   position: absolute;
@@ -127,67 +196,13 @@ body {
   transform: translateY(-50%);
   left: 80px;
 }
-.mealCardDisplay {
-  width: 25%;
-  position: absolute;
-  top: 60%;
-  transform: translateY(-50%);
-  left: 540px;
-}
+
 .mealCardPosition {
   width: 25%;
   position: absolute;
   top: 60%;
   transform: translateY(-50%);
   left: 1000px;
-}
-.nav-wrapper {
-  background-color: #52796f;
-}
-#nav-mobile {
-  text-indent: 50px;
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
-  position: relative;
-  left: -80px;
-}
-.brand-logo {
-  position: absolute;
-  left: 90px;
-}
-
-.sub-title {
-  width: 100%;
-  position: absolute;
-  top: 30%;
-  transform: translateY(-50%);
-  text-align: center;
-  font-size: 70px;
-  margin-top: 80px;
-}
-
-#info-section {
-  margin-bottom: 32px;
-  margin-top: 50px;
-  color: #ffffff;
-  background-color: #a4b6b1;
-  border-radius: 5px;
-  position: relative;
-  padding: 3px 3px 3px 15px;
-  top: 300px;
-  left: -100px;
-}
-#chef-info {
-  margin-bottom: 50px;
-  margin-top: 50px;
-  color: #ffffff;
-  background-color: #a4b6b1;
-  border-radius: 5px;
-  position: relative;
-  padding: 3px 3px 30px 15px;
-  top: 300px;
-  left: 100px;
 }
 
 .meal-item {
@@ -197,14 +212,19 @@ body {
 .meal-item img {
   max-height: 300px;
 }
+/************End content display meal cards************************/
+
+
 
 .recipe-item,
 ul {
   text-align: center;
   padding-top: 20px;
 }
+
 #recipeInstructions {
-  font-size: 20px;
+  font-size: 20px; /*change color*/
+  color: black;
   padding-left: 300px;
   padding-right: 300px;
 }
@@ -213,11 +233,6 @@ ul {
   max-height: 400px;
 }
 
-.mealCards,
-.mealCardDisplay,
-.nutrientDisplay {
-  text-align: center;
-}
 
 #ingridentsList {
   list-style: none;
@@ -229,48 +244,12 @@ ul {
   justify-content: space-between;
 }
 
-/* Style the meal card */
-.meal-card {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 10px;
-  display: inline-block;
-  width: 300px; /* Adjust the width as needed */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-}
+/* Style the meal card goes here */
 
-.meal-card .meal-image {
-  width: 100%;
-  max-height: 200px; /* Adjust the height as needed */
-}
 
-.meal-card h3 {
-  margin: 10px 0;
-}
 
-.meal-card ul {
-  list-style-type: none;
-  padding: 0;
-}
 
-.meal-card li {
-  margin: 5px 0;
-}
 
-.meal-card button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 5px 0;
-  cursor: pointer;
-}
 
 /* Adjust the size of the view recipe button */
 .view-recipe-btn {
@@ -306,4 +285,8 @@ ul {
   font-weight: bold;
   font-size: 10px; /* Reduce font size */
   margin: 3px 0;
+}
+
+.ingredient:hover {
+  cursor: pointer;
 }
