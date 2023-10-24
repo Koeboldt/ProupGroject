@@ -51,7 +51,7 @@
       let querrySearch = new URLSearchParams(window.location.search);
       let ID = querrySearch.get("mealId");
       let searchType = querrySearch.get("searchType");
-      let searchQuerry = querrySearch.get("searchQuerry")
+      let searchQuerry = querrySearch.get("searchQuerry");
       console.log(searchType);
       console.log(ID);
       displayRecipe(ID);
@@ -61,10 +61,11 @@
         $("#modal").css("display", "none");
       });
       $("#closeButton").on("click", () => {
-        window.location = "index.html?searchType=" +
-        searchType +
-        "&searchQuerry=" +
-        searchQuerry;;
+        window.location =
+          "index.html?searchType=" +
+          searchType +
+          "&searchQuerry=" +
+          searchQuerry;
       });
       $(window).on("click", (event) => {
         //Close the modal when the user clicks anywhere outside of the modal
