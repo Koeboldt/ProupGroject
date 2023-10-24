@@ -111,23 +111,26 @@ function searchIngredients(event) {
 }
 
 function displayMealsList(meals) {
-  //Function to display meals with ingredients
-  console.log(meals);
   $("#ingredient-display").html(""); // Clear previous content
-  $("#nutritionFax").empty();
+
   meals.forEach((meal) => {
-    //Iterate through meals and display meal details
-    const mealDiv = $("<div class='meal-item'></div>");
-    $(
+    const mealDiv = $("<div class='meal-card'></div>"); // Create a meal card
+    const mealImage = $(
       `<img class='meal-image' src="${meal.strMealThumb}" alt="${meal.strMeal}">`
-    ).appendTo(mealDiv);
-    const mealName = $(`<h3>${meal.strMeal}</h3>`);
-    const recipeButton = $("<button>View Recipe</button>");
+    );
+    const mealName = $(`<h3 class="meal-title">${meal.strMeal}</h3>`);
+    const recipeButton = $("<button class='view-recipe-btn'>View Recipe</button>");
+
+    // Attach click event to the recipe button
     recipeButton.on("click", () => {
       window.location = "recipe.html?mealId=" + meal.idMeal;
     });
-    mealDiv.append(mealName, recipeButton).appendTo("#ingredient-display");
-    // $("#ingredient-display").append(mealDiv);
+
+    // Append elements to the meal card
+    mealDiv.append(mealImage, mealName, recipeButton);
+
+    // Append the meal card to the ingredient-display section
+    $("#ingredient-display").append(mealDiv);
   });
 }
 
