@@ -30,9 +30,11 @@ function getNutrition(ingredient) {
       $("#ingredient").text(name);
       if (food.servingSize) {
         console.log("Serving Size:", food.servingSize, food.servingSizeUnit);
-        $("#servingSize").text(food.servingSize + food.servingSizeUnit);
+        $("#servingSize").text(
+          "Serving Size: " + food.servingSize + food.servingSizeUnit
+        );
       } else {
-        $("#servingSize").text("undefined");
+        $("#servingSize").text("Serving Size: undefined");
       }
       for (i = 0; i < nutrients.length; i++) {
         if (
@@ -57,6 +59,10 @@ function getNutrition(ingredient) {
       }
       console.log("Nutrients:", nutrientsObj);
       console.log("Nutrients %:", nutrientsObj2);
+      $("#modal").css("display", "block");
+    })
+    .catch((error) => {
+      $("#ingredient").text("Ingredient not found.");
       $("#modal").css("display", "block");
     });
 }
