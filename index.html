@@ -24,26 +24,24 @@
 
   <body>
     <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Chef's Vision</a>
-          <ul id="nav-mobile" class=" right hide-on-med-and-down">
-            <li> <a href="./index.html"> HOME</a></li> 
-            <li> <a href="#info-section"> ABOUT </a></li>
-            <li><a href="#chef-info"> Contact Us</a></li>
-          </ul>
-        </div>
-      </nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Chef's Vision</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="./index.html"> HOME</a></li>
+          <li><a href="#info-section"> ABOUT </a></li>
+          <li><a href="#chef-info"> Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
 
-      <div
-         class="banner">
-     </div>
-    <div class="sub-title"> 
-        <h1> FIND YOUR RECIPE</h1>
+    <div class="banner"></div>
+    <div class="sub-title">
+      <h1>FIND YOUR RECIPE</h1>
     </div>
-    
+
     <div class="container">
       <!-- Section for displaying meal search cards -->
-      <div class="mealCards">
+      <div class="mealCardDisplay">
         <!-- Section for the meal search title -->
         <div class="mealSearch">
           <h2 class="title">Search for Recipe</h2>
@@ -59,43 +57,42 @@
             </button>
           </form>
         </div>
-        
-    
-      </div>
-      <!-- Section for the search input and button -->
-      <div class="mealCardDisplay">
-        <h2 class="title">Search for ingredient</h2>
-        <form onsubmit="searchIngredients(event)">
-          <input
-            type="text"
-            class="search content"
-            placeholder="Enter ingredient"
-            id="ingridentSearch"
-          />
-          <button class="search-btn btn" id="search-btn2" type="submit">
-            Search Ingredients
+        <div class="mealCardDisplay">
+          <h2 class="title">Search for ingredient</h2>
+          <form onsubmit="searchIngredients(event)">
+            <input
+              type="text"
+              class="search content"
+              placeholder="Enter ingredient"
+              id="ingridentSearch"
+            />
+            <button class="search-btn btn" id="search-btn2" type="submit">
+              Search Ingredients
+            </button>
+          </form>
+        </div>
+        <!-- Section for the search input and button -->
+        <div class="mealCardDisplay">
+          <h2 class="title">Show Saved Recipes</h2>
+          <button class="search-btn btn" id="search-btn3" onclick="showSaved()">
+            Saved Recipes
           </button>
-        </form>
-      </div>
-      <!-- Section for the search input and button -->
-      <div class="mealCardDisplay">
-        <h2 class="title">Show Saved Recipies</h2>
-        <button class="search-btn btn" id="search-btn3" onclick="showSaved()">
-          Saved Recipies
-        </button>
-      </div>
-      <div class="nutrientDisplay">
-        <h2 class="title">Nutrition Information</h2>
-        <input
-          type="text"
-          class="nutrientSearch"
-          class="search content"
-          placeholder="Enter ingredient"
-          id="search-input"
-        />
-        <button class="search-btn btn" id="nutrientSearchBtn">
-          Search Ingredient
-        </button>
+          <!-- Section for the search input and button -->
+          <div class="nutrientDisplay">
+            <h2 class="title">Nutrition Information</h2>
+            <input
+              type="text"
+              class="nutrientSearch"
+              class="search content"
+              placeholder="Enter ingredient"
+              id="search-input"
+            />
+            <button class="search-btn btn" id="nutrientSearchBtn">
+              Search Ingredient
+            </button>
+          </div>
+        </div>
+        <!--This section is for the main page-->
       </div>
     </div>
     <!-- Section for displaying ingredients -->
@@ -117,39 +114,54 @@
 
     <!-- About Us paragraph -->
     <div id="about-us">
-        <div class="welcome-message">
+      <div class="welcome-message">
         <h2>Welcome to Chef's Vision</h2>
         <p>
-            Hello and welcome to Chef's Vision, your go-to destination for recipes
-            that you can easily prepare in the comfort of your own kitchen, and We
-            are thrilled to share a little bit about us and the inspiration behind
-            this venture.
+          Hello and welcome to Chef's Vision, your go-to destination for recipes
+          that you can easily prepare in the comfort of your own kitchen, and We
+          are thrilled to share a little bit about us and the inspiration behind
+          this venture.
         </p>
-        </div>
-        <div class="what-you-find">
+      </div>
+      <div class="what-you-find">
         <h2>What You'll Find</h2>
         <p>
-            Whether you're a novice cook looking for beginner-friendly recipes or an
-            experienced home chef seeking culinary inspiration, you'll find a wealth
-            of content here. From quick weeknight dinners and favorite classics to
-            international cuisines and favorited dishes from across the world, We
-            will provide you with a extensive variety of dishes that can all be made
-            from home.
+          Whether you're a novice cook looking for beginner-friendly recipes or
+          an experienced home chef seeking culinary inspiration, you'll find a
+          wealth of content here. From quick weeknight dinners and favorite
+          classics to international cuisines and favorited dishes from across
+          the world, We will provide you with a extensive variety of dishes that
+          can all be made from home.
         </p>
-        </div>
-        <div class="why-this-website">
+      </div>
+      <div class="why-this-website">
         <h2>Why This Website?</h2>
         <p>
-            Chef's Vision was born out of a simple idea: to make the joy of cooking
-            accessible to everyone, regardless of their experience or skill level.
-            We firmly believe that a delicious homemade meal has the power to bring
-            people together, create cherished memories, and nourish both body and
-            soul.
+          Chef's Vision was born out of a simple idea: to make the joy of
+          cooking accessible to everyone, regardless of their experience or
+          skill level. We firmly believe that a delicious homemade meal has the
+          power to bring people together, create cherished memories, and nourish
+          both body and soul.
         </p>
-        </div>
+      </div>
     </div>
     <script src="./assets/js/config.js"></script>
     <script src="./assets/js/scriptMealDB.js"></script>
     <script src="./assets/js/scriptFDC.js"></script>
+    <script>
+      let querrySearch = new URLSearchParams(window.location.search);
+      let searchType = querrySearch.get("searchType");
+      let searchQuerry = querrySearch.get("searchQuerry");
+      console.log(searchType);
+      if (searchType == "saved") {
+        showSaved();
+      } else if (searchType == "ingredient") {
+        $("#ingridentSearch").val(searchQuerry);
+        searchIngredients();
+      } else if (searchType == "recipe") {
+        $("#mealSearch").val(searchQuerry);
+        searchMeal();
+      }
+    </script>
   </body>
 </html>

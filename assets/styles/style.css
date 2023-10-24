@@ -1,6 +1,6 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace,sans-serif;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace, sans-serif;
 }
 
 header {
@@ -51,7 +51,7 @@ body {
 
 /* Modal content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #cad2c5;
   margin: 5% auto; /* 5% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
@@ -79,99 +79,95 @@ body {
 }
 
 .welcome-message {
-    background: #3b726c;
-    display: inline-block;
-    text-align: center;
-    background: rgb(136, 61, 61);
-    color: black;
+  background: #3b726c;
+  display: inline-block;
+  text-align: center;
+  background: rgb(136, 61, 61);
+  color: black;
 }
 
- body {
-    color:#ffffff ;
-    background-color: #cad2c5 ;
-     
-    }
-   
-   .title {
-    text-align:center;
-    background-color:  #84a98c;
-    padding: 50px 10px 15px 10px;;
-   }
+body {
+  color: #ffffff;
+  background-color: #cad2c5;
+}
 
-   .banner{
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),url(../images/img-background.jpg);
-    background-size: cover;
-    background-position: center;
-   }
+.title {
+  text-align: center;
+  background-color: #84a98c;
+  padding: 50px 10px 15px 10px;
+}
 
-   .container{
-    display:flex;
-   }
+.banner {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(../images/img-background.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
-   .mealCards,.mealCardDisplay,.mealCardPosition {
-    background-color: #ffffff;
-    border:2px solid #0a0f07;
-    margin:10px;
-    border-radius: 15px;
-    margin-top: 300px;
-   }
+.container {
+  display: flex;
+}
 
-   .mealCards{
-    width: 25%;
-    position: absolute;
-    top: 60%;
-    transform: translateY(-50%);
-    left:80px;
+.mealCards,
+.mealCardDisplay,
+.mealCardPosition {
+  background-color: #ffffff;
+  border: 2px solid #0a0f07;
+  margin: 10px;
+  border-radius: 15px;
+  margin-top: 300px;
+}
 
-   }
-   .mealCardDisplay{
-    width: 25%;
-    position: absolute ;
-    top: 60%;
-    transform: translateY(-50%);
-    left: 540px;
-    
+.mealCards {
+  width: 25%;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  left: 80px;
+}
+.mealCardDisplay {
+  width: 25%;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  left: 540px;
+}
+.mealCardPosition {
+  width: 25%;
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  left: 1000px;
+}
+.nav-wrapper {
+  background-color: #52796f;
+}
+#nav-mobile {
+  text-indent: 50px;
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+  left: -80px;
+}
+.brand-logo {
+  position: absolute;
+  left: 90px;
+}
 
-   }
-   .mealCardPosition{
-    width: 25%;
-    position: absolute ;
-    top: 60%;
-    transform: translateY(-50%);
-    left: 1000px;
+.sub-title {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 70px;
+  margin-top: 80px;
+}
 
-
-   }
-   .nav-wrapper{
-    background-color:#52796f;
-    
-   }
-   #nav-mobile {
-    text-indent: 50px;
-    list-style: none;
-    display: inline-block;
-    margin: 0 20px;
-    position: relative;
-    left: -80px;
-   }
- .brand-logo {
-   position: absolute;
-   left: 90px;
- }
-
-  .sub-title{
-   width: 100%;
-   position: absolute ;
-   top: 30%;
-   transform: translateY(-50%);
-   text-align: center;
-   font-size: 70px;
-   margin-top: 80px;
-  }
-  
-  #info-section{
+#info-section {
   margin-bottom: 32px;
   margin-top: 50px;
   color: #ffffff;
@@ -180,20 +176,134 @@ body {
   position: relative;
   padding: 3px 3px 3px 15px;
   top: 300px;
-  left:-100px
+  left: -100px;
 }
-#chef-info{
+#chef-info {
   margin-bottom: 50px;
   margin-top: 50px;
-  color:#ffffff;
-  background-color:#a4b6b1;
+  color: #ffffff;
+  background-color: #a4b6b1;
   border-radius: 5px;
-  position:relative;
+  position: relative;
   padding: 3px 3px 30px 15px;
-  top:300px;
-  left: 100px
+  top: 300px;
+  left: 100px;
 }
 
-#ingridentsList{
-    list-style: none;
+.meal-item {
+  text-align: center;
+  padding-top: 40px;
+}
+.meal-item img {
+  max-height: 300px;
+}
+
+.recipe-item,
+ul {
+  text-align: center;
+  padding-top: 20px;
+}
+#recipeInstructions {
+  font-size: 20px;
+  padding-left: 300px;
+  padding-right: 300px;
+}
+
+#recipeImg {
+  max-height: 400px;
+}
+
+.mealCards,
+.mealCardDisplay,
+.nutrientDisplay {
+  text-align: center;
+}
+
+#ingridentsList {
+  list-style: none;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Style the meal card */
+.meal-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  width: 300px; /* Adjust the width as needed */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.meal-card .meal-image {
+  width: 100%;
+  max-height: 200px; /* Adjust the height as needed */
+}
+
+.meal-card h3 {
+  margin: 10px 0;
+}
+
+.meal-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.meal-card li {
+  margin: 5px 0;
+}
+
+.meal-card button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+/* Adjust the size of the view recipe button */
+.view-recipe-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Display ingredient cards in a horizontal grid */
+#ingredient-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Style the ingredient card */
+.ingredient-card {
+  width: calc(25% - 10px); /* Adjust the card width */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px; /* Reduce padding */
+  margin: 5px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Adjust the size of the ingredient name */
+.ingredient-name {
+  font-weight: bold;
+  font-size: 10px; /* Reduce font size */
+  margin: 3px 0;
 }

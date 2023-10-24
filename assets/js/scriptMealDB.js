@@ -16,7 +16,7 @@ function displayModal(message) {
 
 function saveRecipe(event) {
   event.preventDefault();
-  let saved = JSON.parse(localStorage.getItem("recipies")) || [];
+  let saved = JSON.parse(localStorage.getItem("recipes")) || [];
   let newRecipe = $("#recipeName").text();
   if (!saved.includes(newRecipe)) {
     saved.push(newRecipe);
@@ -24,11 +24,11 @@ function saveRecipe(event) {
   } else {
     console.log("Recipe already saved.");
   }
-  localStorage.setItem("recipies", JSON.stringify(saved));
+  localStorage.setItem("recipes", JSON.stringify(saved));
 }
 
 function showSaved() {
-  let saved = JSON.parse(localStorage.getItem("recipies")) || [];
+  let saved = JSON.parse(localStorage.getItem("recipes")) || [];
   $("#ingredient-display").html("");
   for (i = 0; i < saved.length; i++) {
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${saved[i]}`) //Fetch meals based on the ingredient
@@ -45,13 +45,14 @@ function showSaved() {
           const mealName = $(`<h3>${meal.strMeal}</h3>`);
           const recipeButton = $("<button>View Recipe</button>");
           recipeButton.on("click", () => {
-            window.location = "recipe.html?mealId=" + meal.idMeal;
+            window.location =
+              "recipe.html?mealId=" + meal.idMeal + "&searchType=saved";
           });
           mealDiv
             .append(mealName, recipeButton)
             .appendTo("#ingredient-display");
         } else {
-          displayModal("No saved recipies.");
+          displayModal("No saved recipes.");
         }
       })
       .catch(function (error) {
@@ -61,7 +62,9 @@ function showSaved() {
 }
 
 function searchMeal(event) {
-  event.preventDefault();
+  if (event) {
+    event.preventDefault();
+  }
   //Function to be called when "Search Ingredients" button is clicked
   const searchTerm = $("#mealSearch").val();
   console.log("Searching for:", searchTerm);
@@ -75,9 +78,9 @@ function searchMeal(event) {
     })
     .then(function (data) {
       if (data.meals && data.meals.length > 0) {
-        displayMealsList(data.meals);
+        displayMealsList(data.meals, "recipe", searchTerm);
       } else {
-        displayModal("No recipies found with the provided name.");
+        displayModal("No recipes found with the provided name.");
       }
     })
     .catch(function (error) {
@@ -86,7 +89,9 @@ function searchMeal(event) {
 }
 
 function searchIngredients(event) {
-  event.preventDefault();
+  if (event) {
+    event.preventDefault();
+  }
   //Function to be called when "Search Ingredients" button is clicked
   const searchTerm = $("#ingridentSearch").val();
   console.log("Searching for:", searchTerm);
@@ -100,7 +105,7 @@ function searchIngredients(event) {
     })
     .then(function (data) {
       if (data.meals && data.meals.length > 0) {
-        displayMealsList(data.meals);
+        displayMealsList(data.meals, "ingredient", searchTerm);
       } else {
         displayModal("No meals found with the provided ingredient.");
       }
@@ -110,7 +115,7 @@ function searchIngredients(event) {
     });
 }
 
-function displayMealsList(meals) {
+function displayMealsList(meals, searchType, searchQuerry) {
   //Function to display meals with ingredients
   console.log(meals);
   $("#ingredient-display").html(""); // Clear previous content
@@ -124,7 +129,13 @@ function displayMealsList(meals) {
     const mealName = $(`<h3>${meal.strMeal}</h3>`);
     const recipeButton = $("<button>View Recipe</button>");
     recipeButton.on("click", () => {
-      window.location = "recipe.html?mealId=" + meal.idMeal;
+      window.location =
+        "recipe.html?mealId=" +
+        meal.idMeal +
+        "&searchType=" +
+        searchType +
+        "&searchQuerry=" +
+        searchQuerry;
     });
     mealDiv.append(mealName, recipeButton).appendTo("#ingredient-display");
     // $("#ingredient-display").append(mealDiv);
@@ -174,8 +185,3 @@ function displayRecipe(mealId) {
       console.error("Error fetching recipe:", error);
     });
 }
-
-$("#closeButton").on("click", () => {
-  window.location = "index.html";
-});
-$("#saveRecipe").on("click", saveRecipe);
