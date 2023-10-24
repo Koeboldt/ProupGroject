@@ -22,7 +22,7 @@ function getNutrition(ingredient) {
       let nutrients = food.foodNutrients;
       var nutrientsObj = {};
       var nutrientsObj2 = {};
-      console.log("Ingrident:", food.description, food);
+      console.log("Ingredient:", food.description, food);
       var name = "";
       food.description.split(" ").forEach((word) => {
         name += word.charAt(0) + word.slice(1).toLowerCase() + " ";
@@ -83,7 +83,7 @@ function getInformation(searchQuery) {
       let nutrients = food.foodNutrients;
       var nutrientsObj = {};
       var nutrientsObj2 = {};
-      console.log("Ingrident:", food.ingredients, food);
+      console.log("Ingredient:", food.ingredients, food);
       console.log("Serving Size:", food.servingSize + food.servingSizeUnit);
       for (var i1 = 0; i1 < 6; i1++) {
         var foodListItem = $("<li>");
