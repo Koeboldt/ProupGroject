@@ -31,33 +31,24 @@
         text-align: center;
         color: rgb(255, 255, 255);
         margin-bottom: 200px;
+        margin-top: 20px;
   }
   /************ End Welcome to Chef's vison content ********************/
 
 
 
-  /************ Try New Dishes Images for website styling ********************/
+  /************ Try New Dishes for website styling ********************/
  .image-decoration h1{
   font-size: xx-large;
   justify-content: center;
   align-items: center;
   display: flex;
   color:#9cafaa;
+  margin-bottom: 15%;
 
  }
- .image-decoration{
-    flex-direction: row;
- }
 
-  #ramenBowl{
-    width: 300px;
-  }
-   #Brownies{
-    width:300px;
-   }
-
-  
-  /************ Try New Dishes Images for website styling ********************/
+  /************ Try New Dishes for website styling ********************/
 
 
 
@@ -226,7 +217,7 @@
     min-width: 350px; 
     height: auto; /* Allow the height to adjust based on content */
     margin: 10px;
-    border: 2px solid #0a0f07;
+    border: 2px solid #97bdae;
     border-radius: 15px;
     text-align: center;
     background-color: #ffffff;
