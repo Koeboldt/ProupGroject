@@ -51,7 +51,7 @@ body {
 
 /* Modal content */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #3b726c;
   margin: 5% auto; /* 5% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
@@ -192,6 +192,33 @@ body {
   padding: 3px 3px 30px 15px;
   top:300px;
   left: 100px
+}
+
+.meal-item {
+    text-align: center;
+    padding-top: 40px;
+}
+.meal-item img {
+    max-height: 300px;
+}
+
+.recipe-item, ul {
+    text-align: center;
+    padding-top: 20px;
+
+}
+#recipeInstructions {
+    font-size: 20px;
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+#recipeImg {
+    max-height: 400px;
+}
+
+.mealCards, .mealCardDisplay, .nutrientDisplay {
+    text-align: center;
 }
 
 #ingridentsList{
