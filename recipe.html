@@ -27,7 +27,7 @@
         <h3 id="recipeName"></h3>
         <img id="recipeImg" />
         <h4>Ingredients:</h4>
-        <ul id="ingridentsList"></ul>
+        <ul id="ingredientsList"></ul>
         <h4>Instructions:</h4>
         <p id="recipeInstructions"></p>
         <button id="saveRecipe">Save Recipe</button>
@@ -37,7 +37,7 @@
     <div id="modal" class="modal">
       <div class="modal-content">
         <h3 id="ingredient"></h3>
-        <h4>Serving size: <span id="servingSize"></span></h4>
+        <h4 id="servingSize"></h4>
         <!-- Message content goes here -->
         <ul id="nutrients"></ul>
         <!-- Close button for the modal -->
@@ -51,7 +51,7 @@
       let querrySearch = new URLSearchParams(window.location.search);
       let ID = querrySearch.get("mealId");
       let searchType = querrySearch.get("searchType");
-      let searchQuerry = querrySearch.get("searchQuerry")
+      let searchQuerry = querrySearch.get("searchQuerry");
       console.log(searchType);
       console.log(ID);
       displayRecipe(ID);
@@ -61,10 +61,11 @@
         $("#modal").css("display", "none");
       });
       $("#closeButton").on("click", () => {
-        window.location = "index.html?searchType=" +
-        searchType +
-        "&searchQuerry=" +
-        searchQuerry;;
+        window.location =
+          "index.html?searchType=" +
+          searchType +
+          "&searchQuerry=" +
+          searchQuerry;
       });
       $(window).on("click", (event) => {
         //Close the modal when the user clicks anywhere outside of the modal

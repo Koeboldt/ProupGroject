@@ -30,70 +30,39 @@ function getNutrition(ingredient) {
       $("#ingredient").text(name);
       if (food.servingSize) {
         console.log("Serving Size:", food.servingSize, food.servingSizeUnit);
-        $("#servingSize").text(food.servingSize + food.servingSizeUnit);
+        $("#servingSize").text(
+          "Serving Size: " + food.servingSize + food.servingSizeUnit
+        );
       } else {
-        $("#servingSize").text("undefined");
+        $("#servingSize").text("Serving Size: undefined");
       }
       for (i = 0; i < nutrients.length; i++) {
-        if(nutrients[i].nutrientId === 1003){
-        $("<li></li>")
-          .text(
-            `${nutrients[i].nutrientName}: ${
-              nutrients[i].value + nutrients[i].unitName.toLowerCase()
-            }`
-          )
-          .appendTo("#nutrients");
-        nutrientsObj[nutrients[i].nutrientName] =
-          nutrients[i].value + nutrients[i].unitName.toLowerCase();
-        nutrientsObj2[nutrients[i].nutrientName] =
-          nutrients[i].percentDailyValue || "0";
-        nutrientsObj2[nutrients[i].nutrientName] += "%";
+        if (
+          nutrients[i].nutrientId === 1003 ||
+          nutrients[i].nutrientId === 1005 ||
+          nutrients[i].nutrientId === 1004 ||
+          nutrients[i].nutrientId === 1008
+        ) {
+          $("<li></li>")
+            .text(
+              `${nutrients[i].nutrientName}: ${
+                nutrients[i].value + nutrients[i].unitName.toLowerCase()
+              }`
+            )
+            .appendTo("#nutrients");
+          nutrientsObj[nutrients[i].nutrientName] =
+            nutrients[i].value + nutrients[i].unitName.toLowerCase();
+          nutrientsObj2[nutrients[i].nutrientName] =
+            nutrients[i].percentDailyValue || "0";
+          nutrientsObj2[nutrients[i].nutrientName] += "%";
+        }
       }
-      else if(nutrients[i].nutrientId ===1005){
-        $("<li></li>")
-          .text(
-            `${nutrients[i].nutrientName}: ${
-              nutrients[i].value + nutrients[i].unitName.toLowerCase()
-            }`
-          )
-          .appendTo("#nutrients");
-        nutrientsObj[nutrients[i].nutrientName] =
-          nutrients[i].value + nutrients[i].unitName.toLowerCase();
-        nutrientsObj2[nutrients[i].nutrientName] =
-          nutrients[i].percentDailyValue || "0";
-        nutrientsObj2[nutrients[i].nutrientName] += "%";
-      }
-      else if(nutrients[i].nutrientId === 1004){
-        $("<li></li>")
-          .text(
-            `${nutrients[i].nutrientName}: ${
-              nutrients[i].value + nutrients[i].unitName.toLowerCase()
-            }`
-          )
-          .appendTo("#nutrients");
-        nutrientsObj[nutrients[i].nutrientName] =
-          nutrients[i].value + nutrients[i].unitName.toLowerCase();
-        nutrientsObj2[nutrients[i].nutrientName] =
-          nutrients[i].percentDailyValue || "0";
-        nutrientsObj2[nutrients[i].nutrientName] += "%";
-      }
-        else if(nutrients[i].nutrientId === 1008){
-        $("<li></li>")
-          .text(
-            `${nutrients[i].nutrientName}: ${
-              nutrients[i].value + nutrients[i].unitName.toLowerCase()
-            }`
-          )
-          .appendTo("#nutrients");
-        nutrientsObj[nutrients[i].nutrientName] =
-          nutrients[i].value + nutrients[i].unitName.toLowerCase();
-        nutrientsObj2[nutrients[i].nutrientName] =
-          nutrients[i].percentDailyValue || "0";
-        nutrientsObj2[nutrients[i].nutrientName] += "%";
-      }
-    }
       console.log("Nutrients:", nutrientsObj);
       console.log("Nutrients %:", nutrientsObj2);
+      $("#modal").css("display", "block");
+    })
+    .catch((error) => {
+      $("#ingredient").text("Ingredient not found.");
       $("#modal").css("display", "block");
     });
 }
@@ -127,38 +96,43 @@ function getInformation(searchQuery) {
       let nutrients = food.foodNutrients;
       var nutrientsObj = {};
       var nutrientsObj2 = {};
-      console.log("Ingrident:", food.ingredients, food);
+      console.log("Ingredient:", food.ingredients, food);
       console.log("Serving Size:", food.servingSize + food.servingSizeUnit);
       for (var i1 = 0; i1 < 6; i1++) {
         var foodListItem = $("<li>");
         foodListItem.addClass("foodDescription");
         foodListItem.attr("data-FDCID", data.foods[i1].fdcId);
-        for(var i2 = 0; i2 < data.foods[i1].foodNutrients.length; i2++){
-          if(data.foods[i1].foodNutrients[i2].nutrientId === 1003){
-        foodListItem.attr(
-          "data-protein",
-          data.foods[i1].foodNutrients[i2].nutrientName + ": " +
-            data.foods[i1].foodNutrients[i2].value +
-            data.foods[i1].foodNutrients[i2].unitName
-        );}
-        else if(data.foods[i1].foodNutrients[i2].nutrientId === 1004){
-          foodListItem.attr(
-            "data-fat",
-            data.foods[i1].foodNutrients[i2].nutrientName + ": " +
-              data.foods[i1].foodNutrients[i2].value +
-              data.foods[i1].foodNutrients[i2].unitName
-          );}
-          else if(data.foods[i1].foodNutrients[i2].nutrientId === 1005){
+        for (var i2 = 0; i2 < data.foods[i1].foodNutrients.length; i2++) {
+          if (data.foods[i1].foodNutrients[i2].nutrientId === 1003) {
             foodListItem.attr(
-              "data-carbs",
-              data.foods[i1].foodNutrients[i2].nutrientName + ": " +
+              "data-protein",
+              data.foods[i1].foodNutrients[i2].nutrientName +
+                ": " +
                 data.foods[i1].foodNutrients[i2].value +
                 data.foods[i1].foodNutrients[i2].unitName
-            );}
-        foodListItem.attr("id", "foodDesc-" + i1);
-        foodListItem.text(data.foods[i1].description);
-        $("#nutritionFax").append(foodListItem);
-      }}
+            );
+          } else if (data.foods[i1].foodNutrients[i2].nutrientId === 1004) {
+            foodListItem.attr(
+              "data-fat",
+              data.foods[i1].foodNutrients[i2].nutrientName +
+                ": " +
+                data.foods[i1].foodNutrients[i2].value +
+                data.foods[i1].foodNutrients[i2].unitName
+            );
+          } else if (data.foods[i1].foodNutrients[i2].nutrientId === 1005) {
+            foodListItem.attr(
+              "data-carbs",
+              data.foods[i1].foodNutrients[i2].nutrientName +
+                ": " +
+                data.foods[i1].foodNutrients[i2].value +
+                data.foods[i1].foodNutrients[i2].unitName
+            );
+          }
+          foodListItem.attr("id", "foodDesc-" + i1);
+          foodListItem.text(data.foods[i1].description);
+          $("#nutritionFax").append(foodListItem);
+        }
+      }
     });
 }
 var nutritionOptionsEl = $("#nutritionFax");
