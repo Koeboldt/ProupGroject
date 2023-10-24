@@ -197,3 +197,89 @@ body {
 #ingridentsList{
     list-style: none;
 }
+
+/* Display meal cards in a horizontal grid */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Style the meal card */
+.meal-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  width: 300px; /* Adjust the width as needed */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.meal-card .meal-image {
+  width: 100%;
+  max-height: 200px; /* Adjust the height as needed */
+}
+
+.meal-card h3 {
+  margin: 10px 0;
+}
+
+.meal-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.meal-card li {
+  margin: 5px 0;
+}
+
+.meal-card button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+/* Adjust the size of the view recipe button */
+.view-recipe-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 3px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Display ingredient cards in a horizontal grid */
+#ingredient-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Style the ingredient card */
+.ingredient-card {
+  width: calc(25% - 10px); /* Adjust the card width */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px; /* Reduce padding */
+  margin: 5px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Adjust the size of the ingredient name */
+.ingredient-name {
+  font-weight: bold;
+  font-size: 10px; /* Reduce font size */
+  margin: 3px 0;
+}
