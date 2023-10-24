@@ -64,7 +64,7 @@
               type="text"
               class="search content"
               placeholder="Enter ingredient"
-              id="ingridentSearch"
+              id="ingredientSearch"
             />
             <button class="search-btn btn" id="search-btn2" type="submit">
               Search Ingredients
@@ -156,7 +156,7 @@
       if (searchType == "saved") {
         showSaved();
       } else if (searchType == "ingredient") {
-        $("#ingridentSearch").val(searchQuerry);
+        $("#ingredientSearch").val(searchQuerry);
         searchIngredients();
       } else if (searchType == "recipe") {
         $("#mealSearch").val(searchQuerry);

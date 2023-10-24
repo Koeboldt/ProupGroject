@@ -93,7 +93,7 @@ function searchIngredients(event) {
     event.preventDefault();
   }
   //Function to be called when "Search Ingredients" button is clicked
-  const searchTerm = $("#ingridentSearch").val();
+  const searchTerm = $("#ingredientSearch").val();
   console.log("Searching for:", searchTerm);
   if (!searchTerm) {
     displayModal("Please enter an ingredient.");
@@ -170,7 +170,7 @@ function displayRecipe(mealId) {
           if (ingredient && measure) {
             $(
               `<li><span class='ingredient'>${ingredient}</span>: ${measure}</li>`
-            ).appendTo("#ingridentsList");
+            ).appendTo("#ingredientsList");
           }
         }
         $("#recipeImg").attr("src", meal.strMealThumb); //Add the meal image source
