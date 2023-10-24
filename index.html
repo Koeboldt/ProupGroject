@@ -23,77 +23,83 @@
   </head>
 
   <body>
+    <!-- Section for Nav-bar-->
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">Chef's Vision</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="./index.html"> HOME</a></li>
-          <li><a href="#info-section"> ABOUT </a></li>
-          <li id="saved">Contact Us</li>
+          <li><a href="./index.html"> Home</a></li>
+          <li><a href="#about-us"> About </a></li>
+          <li id="saved"><a href="#ingredient-display"> Contact Us</a></li>
         </ul>
       </div>
     </nav>
 
+    <!-- Section for background-img and content-->
     <div class="banner"></div>
     <div class="sub-title">
       <h1>FIND YOUR RECIPE</h1>
     </div>
 
-    <div class="container">
+    <div class="mealCardContainer">
       <!-- Section for displaying meal search cards -->
       <div class="mealCardDisplay">
         <!-- Section for the meal search title -->
-        <div class="mealSearch">
-          <h2 class="title">Search for Recipe</h2>
-          <form onsubmit="searchMeal(event)">
-            <input
-              type="text"
-              class="search content"
-              placeholder="Enter recipie"
-              id="mealSearch"
-            />
-            <button class="search-btn btn" id="search-btn1" type="submit">
-              Search for a Recipe
-            </button>
-          </form>
-        </div>
-        <div class="mealCardDisplay">
-          <h2 class="title">Search for ingredient</h2>
-          <form onsubmit="searchIngredients(event)">
-            <input
-              type="text"
-              class="search content"
-              placeholder="Enter ingredient"
-              id="ingredientSearch"
-            />
-            <button class="search-btn btn" id="search-btn2" type="submit">
-              Search Ingredients
-            </button>
-          </form>
-        </div>
-        <!-- Section for the search input and button -->
-        <div class="mealCardDisplay">
-          <h2 class="title">Show Saved Recipes</h2>
-          <button class="search-btn btn" id="search-btn3" onclick="showSaved()">
-            Saved Recipes
+
+        <h2 class="title">Search for Recipe</h2>
+        <form onsubmit="searchMeal(event)">
+          <input
+            type="text"
+            class="search content"
+            placeholder="Enter recipie"
+            id="mealSearch"
+          />
+          <button class="search-btn btn" id="search-btn1" type="submit">
+            Search for a Recipe
           </button>
-          <!-- Section for the search input and button -->
-          <div class="nutrientDisplay">
-            <h2 class="title">Nutrition Information</h2>
-            <input
-              type="text"
-              class="nutrientSearch"
-              class="search content"
-              placeholder="Enter ingredient"
-              id="search-input"
-            />
-            <button class="search-btn btn" id="nutrientSearchBtn">
-              Search Ingredient
-            </button>
-          </div>
-        </div>
-        <!--This section is for the main page-->
+        </form>
       </div>
+
+      <!-- Section for the search input and button -->
+      <div class="mealCardDisplay">
+        <h2 class="title">Search for ingredient</h2>
+        <form onsubmit="searchIngredients(event)">
+          <input
+            type="text"
+            class="search content"
+            placeholder="Enter ingredient"
+            id="ingridentSearch"
+          />
+          <button class="search-btn btn" id="search-btn2" type="submit">
+            Search Ingredients
+          </button>
+        </form>
+      </div>
+
+      <!-- Section for the search input and button -->
+      <div class="nutrientDisplay">
+        <h2 class="title">Nutrition Information</h2>
+        <input
+          type="text"
+          class="nutrientSearch"
+          class="search content"
+          placeholder="Enter Nutrition"
+          id="search-input"
+        />
+        <button class="search-btn btn" id="nutrientSearchBtn">
+          Search Ingredient
+        </button>
+      </div>
+
+      <!-- Section for the search input and button -->
+      <div class="saveRecipesDisplay">
+        <h2 class="title">Show Saved Recipes</h2>
+        <button class="search-btn btn" id="search-btn3" onclick="showSaved()">
+          Saved Recipes
+        </button>
+      </div>
+
+      <!--This section is for the main page-->
     </div>
     <!-- Section for displaying ingredients -->
     <div id="ingredient-display"></div>
@@ -113,7 +119,7 @@
     </div>
 
     <!-- About Us paragraph -->
-    <div id="about-us">
+    <div>
       <div class="welcome-message">
         <h2>Welcome to Chef's Vision</h2>
         <p>
@@ -123,7 +129,11 @@
           this venture.
         </p>
       </div>
-      <div class="what-you-find">
+      <!-- Section for images-2 for the Website-->
+      <div class="image-decoration">
+        <h1>Try new dishes from the comfort of your home!</h1>
+      </div>
+      <div id="about-us" class="what-you-find">
         <h2>What You'll Find</h2>
         <p>
           Whether you're a novice cook looking for beginner-friendly recipes or
@@ -134,7 +144,7 @@
           can all be made from home.
         </p>
       </div>
-      <div class="why-this-website">
+      <div id="about-us" class="why-this-website">
         <h2>Why This Website?</h2>
         <p>
           Chef's Vision was born out of a simple idea: to make the joy of
@@ -144,6 +154,12 @@
           both body and soul.
         </p>
       </div>
+      <section id="contact-us">
+        <h2>Contact Us</h2>
+
+        <p>Feel free to get in touch with us at chefvision@chefvision.com</p>
+        <!-- Add your contact information or contact form here -->
+      </section>
     </div>
     <script src="./assets/js/config.js"></script>
     <script src="./assets/js/scriptMealDB.js"></script>
@@ -156,14 +172,12 @@
       if (searchType == "saved") {
         showSaved();
       } else if (searchType == "ingredient") {
-        $("#ingredientSearch").val(searchQuerry);
+        $("#ingridentSearch").val(searchQuerry);
         searchIngredients();
       } else if (searchType == "recipe") {
         $("#mealSearch").val(searchQuerry);
         searchMeal();
       }
-      window.history.replaceState(null, "", "index.html");
-      $("#saved").on("click", showSaved);
     </script>
   </body>
 </html>
